@@ -121,6 +121,9 @@ button {
 .circle.active {
   background-color: black;
 }
+.active {
+  opacity: 1;
+}
 
 #number {
   width: 100px;
@@ -130,7 +133,22 @@ button {
 }
 .score {
   margin-left: 10px;
+  width: 200px;
 }
-.active {
-  opacity: 1;
+.resultNumber {
+  width: 200px;
+  text-align: left;
+  font-size: 26px;
+  line-height: 1.5;
+  justify-content: left;
+}
+.bar {
+  width: 1px;
+  height: 390px;
+  border-left: 2px solid black;
+}
+.resultScore {
+  width: 300px;
+  font-size: 26px;
+  line-height: 1.5;
 }

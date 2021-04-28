@@ -13,6 +13,8 @@ function add() {
   sliderList[current].classList.add('active');
   circlesBtn[current].classList.add('active');
 }
+
+
 function next() {
   remove();
   current = current + 1 < 4 ? current + 1 : 0;

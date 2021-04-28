@@ -10,7 +10,7 @@
 <body>
   <div class="content">
     <div>hex color:
-      <div class="color"></div>
+      <div class="colorValue"></div>
     </div>
    <button value="click">click</button>
    <div class="title">Background Color Change</div>
@@ -34,9 +34,20 @@
     </div>
     <div class="title">Carousel</div>
   </div>
-  <div class="content"></div>
+  <div class="content" style="flex-direction: row;">
+    <div>
+      <input id="number" type="number" min = "0" max = "9" >
+      <div class="count"></div>
+      <div class="score"></div>
+    </div>
+    <div>
+      <div class="resultNumber"></div>
+      <div class="resultSocre"></div>
+    </div>
+  </div>
   <div class="content"></div>
 </body>
 <script src="./BCC.js"></script>
 <script src="./carousel.js"></script>
+<script src="./numberBaseball.js"></script>
 </html>

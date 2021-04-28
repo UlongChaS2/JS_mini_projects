@@ -20,7 +20,7 @@ body {
   justify-content: center;
   align-items: center;
 }
-.content .color {
+.content .colorValue {
   margin-left: 16px;
 }
 .content .title {
@@ -120,6 +120,16 @@ button {
 }
 .circle.active {
   background-color: black;
+}
+
+#number {
+  width: 100px;
+  height: 26px;
+  margin-right: 20px;
+  font-size: 20px;
+}
+.score {
+  margin-left: 10px;
 }
 .active {
   opacity: 1;

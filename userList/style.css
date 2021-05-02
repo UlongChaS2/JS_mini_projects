@@ -72,3 +72,9 @@ h2 {
   justify-content: center;
   font-weight: 700;
 }
+
+.user {
+  width: 100%;
+  font-size: 20px;
+  font-weight: bold;
+}

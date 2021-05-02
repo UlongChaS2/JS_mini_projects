@@ -12,7 +12,7 @@ for (let i = 0; i < 10; i++) {
 }
 
 let randomNumbers = [];
-for (let i = 0; i < 3; i++) {
+for (let i = 0; i < 4; i++) {
   const index = Math.floor(Math.random() * numbers.length);
   randomNumbers.push(numbers[index]);
   numbers.splice(index, 1);
@@ -20,7 +20,7 @@ for (let i = 0; i < 3; i++) {
 console.log(randomNumbers);
 
 number.addEventListener('change', function() {
-  if (number.value.length === 3) {
+  if (number.value.length === 4) {
     if (number.value === randomNumbers.join('')) {
       score.textContent = 'HomeRun!';
       // numbers = [];
@@ -62,7 +62,7 @@ number.addEventListener('change', function() {
     }
     number.value = '';
   } else {
-    alert('3자리 숫자를 적어주세요.');
+    alert('4자리 숫자를 적어주세요.');
     number.value = '';
   }
 })

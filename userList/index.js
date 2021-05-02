@@ -1,40 +1,25 @@
 let users = [
   {
     name: 'Jason',
-    price: '63089',
+    price: 63089,
   },
   {
     name: 'Olson',
-    price: '41065',
+    price: 41065,
   },
   {
     name: 'Jake',
-    price: '51628',
+    price: 51628,
   },
   {
     name: 'Kasey',
-    price: '63450',
+    price: 63450,
   },
 ];
-
-const userListContainer = document.querySelector('.user-list');
-let userList = [];
-
-for ( let i = 0; i < users.length; i++ ) {
-  userList.push(users[i]);
-  userListContainer.innerHTML += `<div>${userList[i].name} $${userList[i].price}</div>`;
-}
-
 // dummyDate안에 프로퍼티 price에 randomPrice 넣는 함수
-const randomPrice = function() {
-  let price = [];
-
-  for ( let i = 0; i < 6; i++ ) {
-    const randomNumber = Math.floor(Math.random() * 10);
-    price.push(randomNumber);
-  }
-  const priceJoin = `$${price.join('')}`;
-  return priceJoin; 
+const randomPrice = () => {
+  const randomNumber = Math.floor(Math.random() * 100000);
+  return randomNumber;
 }
 
 let dummyData = [
@@ -87,36 +72,57 @@ let dummyData = [
     price: randomPrice(),
   },
 ];
-// Add User Event
+
+
+
+const userList = document.querySelector('.user-list');
+
+
+function appendUsers() {
+  while (userList.hasChildNodes()) {
+    userList.removeChild(userList.lastChild);
+  }
+  for ( let user of users ) {
+    const div = document.createElement('div');
+    div.classList.add('user');
+    div.innerHTML = `${user.name} $${user.price}`;
+    userList.append(div);
+  }
+}
+
+//addBt click event
 const addBt = document.querySelector('.addUser');
-let index = 0;
-
-addBt.addEventListener('click', function() {
-  if ( index < dummyData.length ) {
-    userList.push(dummyData[index]);
-    userListContainer.innerHTML += `<div> ${userList[index + users.length].name} ${userList[index + users.length].price}</div>`;
-    index++
-  } else {
-    alert('no more any list');
-  }
+addBt.addEventListener('click', function () {
+  users.push(dummyData.shift());
+  appendUsers();
 })
 
-// Remove User Event
+//removeBt click event
 const removeBt = document.querySelector('.removeUser');
-
-removeBt.addEventListener('click', function() {
-  if ( index > 0 - users.length ) {
-    userList.splice(userList[userList.length], 1);
-    //userListContainer.innerText -= `${userList[index - users.length].name} $${userList[index - users.length].price}\n`;
-    // 이 부분을 어떻게 해야할지 모르겠음.
-  } else {
-    alert('please add user');
-  }
-})
+removeBt.addEventListener('click', function () {
+  dummyData.unshift(users.pop());
+  appendUsers();
+});
 
 
+//addPriceBt click event
+const addPrice = document.querySelectorAll('.addPrice');
+for (let i = 0; i < 3; i++) {
+  addPrice[i].addEventListener('click', function (e) {
+    let price = Number(e.target.value);
+    for ( let user of users) {
+      user.price += price;
+    }
+    appendUsers();
+  });
+}
 
-//for ( let i = 0; i < users.length; i++ ) {
-// userListContainer.innerText += `${userList[i].name} $${userList[i].price}\n`;
-  
-//}
+
+
+appendUsers();
+
+
+
+
+// const sortBt = document.querySelector('.sortUser');
+// const sumMoneyBt = document.querySelector('.sumMoney');

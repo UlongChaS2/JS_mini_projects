@@ -93,15 +93,24 @@ function appendUsers() {
 //addBt click event
 const addBt = document.querySelector('.addUser');
 addBt.addEventListener('click', function () {
-  users.push(dummyData.shift());
-  appendUsers();
+  const dummylength = dummyData.length; //'dummyData.length' is not defined at HTMLButtonElement.<anonymous>가 나오지 않아 변수에 값을 준뒤 사용
+  if (dummylength > 0) {
+    users.push(dummyData.shift());
+    appendUsers();
+  } else {
+    alert('no more users');
+  }
 })
 
 //removeBt click event
 const removeBt = document.querySelector('.removeUser');
 removeBt.addEventListener('click', function () {
-  dummyData.unshift(users.pop());
-  appendUsers();
+  if (users.length > 0) {
+    dummyData.unshift(users.pop());
+    appendUsers();
+  } else {
+    alert('please add user');
+  }
 });
 
 
@@ -127,7 +136,12 @@ sortBt.addEventListener('click', function () {
   appendUsers();
 })
 
-// const sumMoneyBt = document.querySelector('.sumMoney');
+const sumMoneyBt = document.querySelector('.sumMoney');
+const sumMoneyTotal = document.querySelector('.sum-money__total');
+sumMoneyBt.addEventListener('click', function() {
+  const total = users.reduce((acc, cur) => (acc += cur.price), 0);
+  sumMoneyTotal.textContent = `$ ${total}`;
+})
 
 
 

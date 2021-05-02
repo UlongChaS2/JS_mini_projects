@@ -105,11 +105,12 @@ removeBt.addEventListener('click', function () {
 });
 
 
-//addPriceBt click event
+// addPriceBt click event
 const addPrice = document.querySelectorAll('.addPrice');
 for (let i = 0; i < 3; i++) {
   addPrice[i].addEventListener('click', function (e) {
     let price = Number(e.target.value);
+
     for ( let user of users) {
       user.price += price;
     }
@@ -117,12 +118,20 @@ for (let i = 0; i < 3; i++) {
   });
 }
 
+// sortBt click event
+const sortBt = document.querySelector('.sortUser');
+sortBt.addEventListener('click', function () {
+  users.sort(function (a, b){
+    return a.price - b.price;
+  });
+  appendUsers();
+})
+
+// const sumMoneyBt = document.querySelector('.sumMoney');
+
 
 
 appendUsers();
 
 
 
-
-// const sortBt = document.querySelector('.sortUser');
-// const sumMoneyBt = document.querySelector('.sumMoney');

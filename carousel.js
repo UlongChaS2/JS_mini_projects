@@ -32,8 +32,8 @@ preBtn.addEventListener('click', pre)
 for (let i = 0; i < 4; i++) {
   circlesBtn[i].addEventListener('click', function (e) {
     let index = e.target.value;
-    remove();
     current = index;
+    remove();
     add();
   });
 }

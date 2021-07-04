@@ -1,0 +1,111 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Noto Sans KR', sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tracker-header {
+  margin: 6vmin 0;
+  font-size: 3vmax;
+  font-weight: 700;
+}
+
+.tracker-total__money {
+  width: 100%;
+}
+
+.tracker-category {
+  width: 100%;
+  height: 13vmin;
+  display: flex;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  margin: 3vmin;
+}
+
+.tracker-category div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tracker-category div:first-child {
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.tracker-history {
+  width: 100%;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.plus {
+  color: blue;
+}
+
+.minus {
+  color: red;
+}
+
+.tracker-transaction {
+  width: 100%;
+}
+
+.tracker-transaction__text,
+.tracker-transaction__amount {
+  display: flex;
+  flex-direction: column;
+}
+
+.tracker-transaction__text > input,
+.tracker-transaction__amount > input {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  height: 30px;
+  margin: 14px 0px 10px;
+}
+
+.add-transaction {
+  width: 100%;
+  border: 0;
+  cursor: pointer;
+  margin-top: 20px;
+  height: 46px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 20%;
+  }
+
+  .tracker-header {
+    margin: 6vmin 0;
+    font-size: 2vmax;
+    font-weight: 700;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    width: 15%;
+  }
+
+  .tracker-header {
+    margin: 6vmin 0;
+    font-size: 1.5vmax;
+    font-weight: 700;
+  }
+}
